@@ -1,4 +1,4 @@
-### WARNING : file overriden by PUPPET 
+### INFO : file overwritten by PUPPET 
 
 #deb cdrom:[Ubuntu 11.04 _Natty Narwhal_ - Release i386 (20110427.1)]/ natty main restricted
 
@@ -30,9 +30,9 @@ deb-src http://fr.archive.ubuntu.com/ubuntu/ natty multiverse
 deb http://fr.archive.ubuntu.com/ubuntu/ natty-updates multiverse
 deb-src http://fr.archive.ubuntu.com/ubuntu/ natty-updates multiverse
 
-## The following two lines are uncommented by Puppet to add software from the 'backports' repository 
-deb http://fr.archive.ubuntu.com/ubuntu/ natty-backports main restricted universe multiverse
-deb-src http://fr.archive.ubuntu.com/ubuntu/ natty-backports main restricted universe multiverse
+## Uncommented theses 2 lines to add software from the 'backports' repository 
+#deb http://fr.archive.ubuntu.com/ubuntu/ natty-backports main restricted universe multiverse
+#deb-src http://fr.archive.ubuntu.com/ubuntu/ natty-backports main restricted universe multiverse
 
 deb http://security.ubuntu.com/ubuntu natty-security main restricted
 deb-src http://security.ubuntu.com/ubuntu natty-security main restricted
@@ -45,8 +45,8 @@ deb-src http://security.ubuntu.com/ubuntu natty-security multiverse
 ## 'partner' repository.
 ## This software is not part of Ubuntu, but is offered by Canonical and the
 ## respective vendors as a service to Ubuntu users.
-# deb http://archive.canonical.com/ubuntu natty partner
-# deb-src http://archive.canonical.com/ubuntu natty partner
+deb http://archive.canonical.com/ubuntu natty partner
+deb-src http://archive.canonical.com/ubuntu natty partner
 
 ## This software is not part of Ubuntu, but is offered by third-party
 ## developers who want to ship their latest software.
