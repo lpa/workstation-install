@@ -9,9 +9,11 @@
   "version": "0.1",
   "checksums": {
     "Modulefile": "7c5b363f03f63afacae7967e300877a4",
-    "files/sources.list": "db07a3319fa5d393032e99b7f27a085d",
-    "manifests/aptsourceslist.pp": "cd7c29db4a6f15122d42e43b30dfece0",
-    "manifests/init.pp": "43fa68e3e8a5c318e2986efbccb1b286",
+    "README": "95ca6a9ec81ad6f91e4e11f5888d748d",
+    "files/sources.list": "b598a8dcc1dce8bf087557569ecb0108",
+    "manifests/aptsourceslist.pp": "6fa8bac3c4be7da4f376716e292047fd",
+    "manifests/init.pp": "a078f13e5adeea5ffe62bb80ffe43f91",
+    "manifests/java.pp": "94e2e59515b08f8e7244e2404c78c9d0",
     "tests/aptsourceslist.pp": "66c12aac5286cdfdc859f1bc612559d9"
   },
   "dependencies": []
