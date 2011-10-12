@@ -11,7 +11,8 @@ class workstation-install::aptsourceslist {
     source => $sourceslistfile,
     owner => 'root',
     group => 'root',
-    mode => '644'
+    mode => '644',
+    notify  => Exec["/usr/bin/aptitude update"]
   }
 
   notify {'partner':
