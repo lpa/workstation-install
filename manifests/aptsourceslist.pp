@@ -5,23 +5,28 @@ class workstation-install::aptsourceslist {
     default: { fail("Unsupported operating system, supported is Unbuntu 11.04") }
   }
 
-   
   file {'sources.list':
-    path     => '/etc/apt/sources.list',
-    ensure   => file,
-    source   => $sourceslistfile,
-    owner    => 'root',
-    group    => 'root',
-    mode     => '644'
+    path => '/etc/apt/sources.list',
+    ensure => file,
+    source => $sourceslistfile,
+    owner => 'root',
+    group => 'root',
+    mode => '644'
   }
 
-  notify {'backports':
-    message =>  'Adding backport package list (for sun-jdk-6)'
+  notify {'partner':
+    message =>  'Adding partner packages repository to source list'
   }
 
-  File['sources.list'] -> Notify['backports']
+  exec {'update packages list':
+        command => '/usr/bin/apt-get update', 
+        logoutput => on_failure,
+        subscribe => File['sources.list'],
+        refreshonly => true
+  }
+
+  File['sources.list'] -> Notify['partner']
+
+  
 
 }
-
-#no more need of declaration, launched by module invocation 
-#class { 'aptsourceslist': }

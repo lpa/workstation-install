@@ -2,16 +2,13 @@
 
 class workstation-install {
 
-  notify {'install-started':
-    message => 'Starts a fresh install of your workstation ...'
-  }
+  warning('Starts a fresh install of your workstation ...')
 
   include aptsourceslist
+  include java
 
 }
 
-
-#include java
 #include appserver
 #include browser
 #include database
