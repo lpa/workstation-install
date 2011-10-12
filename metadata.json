@@ -1,0 +1,18 @@
+{
+  "name": "workstation-install",
+  "author": "laurent",
+  "description": "",
+  "license": "",
+  "project_page": "",
+  "source": "",
+  "summary": "",
+  "version": "0.1",
+  "checksums": {
+    "Modulefile": "7c5b363f03f63afacae7967e300877a4",
+    "files/sources.list": "db07a3319fa5d393032e99b7f27a085d",
+    "manifests/aptsourceslist.pp": "cd7c29db4a6f15122d42e43b30dfece0",
+    "manifests/init.pp": "43fa68e3e8a5c318e2986efbccb1b286",
+    "tests/aptsourceslist.pp": "66c12aac5286cdfdc859f1bc612559d9"
+  },
+  "dependencies": []
+}

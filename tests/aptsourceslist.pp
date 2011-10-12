@@ -1,1 +1,1 @@
-include aptsourceslist
+include workstation-install::aptsourceslist
