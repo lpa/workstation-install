@@ -1,5 +1,7 @@
 # include all classes to call for a complete workstation installation
 
+# TODO: Regarder cucumber-puppet
+
 class workstation-install {
 
   warning('Starts a fresh install of your workstation ...')
