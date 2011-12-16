@@ -1,8 +1,17 @@
 class workstation-install::aptsourceslist {
   
-  case $operatingsystem {
-    ubuntu: { $sourceslistfile = "puppet:///modules/workstation-install/sources.list"}
-    default: { fail("Unsupported operating system, supported is Unbuntu 11.04") }
+    # TODO: comment récupérer la version de l'OS ? besoin pour pointer vers un fichier de sources différent 
+    
+  case $::operatingsystem {
+    ubuntu: { 
+    	case $::operatingsystemrelease {
+    		'10.04': {$sourceslistfile = 'puppet:///modules/workstation-install/sources.10.04.list'} 
+    		'11.04': {$sourceslistfile = 'puppet:///modules/workstation-install/sources.11.04.list'}
+    		default: { fail('Unsupported operating system, supported is ubuntu 10.04 and 11.04') }
+    	}
+    		}
+    darwin: { fail('This seem to be a Mac, this operating system is not supported yet, supported is ubuntu 10.04 and 11.04')}
+    default: { fail('Unsupported operating system, supported is ubuntu 10.04 and 11.04') }
   }
 
   file {'sources.list':
