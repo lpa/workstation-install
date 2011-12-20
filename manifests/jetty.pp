@@ -1,4 +1,4 @@
-class workstation-install::jetty {
+#class workstation-install::jetty {
 
   warning('Installing jetty server')
 
@@ -35,6 +35,6 @@ class workstation-install::jetty {
 
 
 
-}
+#}
 
 
