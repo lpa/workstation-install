@@ -31,7 +31,7 @@ class workstation-install::jetty {
     notify  => Exec["/usr/bin/aptitude update"]
   }
     
-  File['etc-default-jetty'] -> Notify['jetty']
+  #File['etc-default-jetty'] -> Notify['jetty']
 
 
 
