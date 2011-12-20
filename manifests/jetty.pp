@@ -1,3 +1,4 @@
+class workstation-install::jetty {
 
   warning('Installing jetty server')
 
@@ -60,7 +61,6 @@ exec { "download-tomcat-jdbc-pool":
     group => 'root',
     mode => '644'
   }
-    
 
-
+}
 
