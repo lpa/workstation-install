@@ -5,9 +5,9 @@
 class workstation-install {
 
   warning('Starts a fresh install of your workstation ...')
-
-  include aptsourceslist
-  include java
+  include test
+  #include aptsourceslist
+  #include java
 
 }
 

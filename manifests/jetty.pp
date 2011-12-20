@@ -1,40 +1,66 @@
-class workstation-install::jetty {
 
   warning('Installing jetty server')
 
+exec { "download-tomcat-jdbc-pool":
+    command => "wget -O /usr/share/java/tomcat-jdbc-7.0.22.jar http://mvnrepository.adencf.local/nexus/service/local/repositories/central/content/org/apache/tomcat/tomcat-jdbc/7.0.22/tomcat-jdbc-7.0.22.jar",
+    path    => "/usr/local/bin/:/bin/:/usr/bin"
+}
+
   package {'jetty':
         ensure => installed,
-        subscribe => Exec['update packages list'],
-        notify => Exec['wget -O /usr/share/java/tomcat-jdbc-7.0.22.jar http://mvnrepository.adencf.local/nexus/service/local/repositories/central/content/org/apache/tomcat/tomcat-jdbc/7.0.22/tomcat-jdbc-7.0.22.jar; 
-        				ln -s /usr/share/java/tomcat-jdbc-7.0.22.jar /usr/share/java/tomcat-jdbc.jar']
+        notify => Exec['download-tomcat-jdbc-pool']
   }
   
   package {'libjetty-extra':
         ensure => installed,
-        subscribe => Exec['update packages list']
   }  
 
   package {'libmysql-java':
         ensure => installed,
-        subscribe => Exec['update packages list']
   }
   
-  # TODO: finir avec les 3 autres fichiers
+  #create symlink
+  file { "/usr/share/java/tomcat-jdbc.jar":
+  	ensure => "/usr/share/java/tomcat-jdbc-7.0.22.jar" 
+  }
+
   
   file {'etc-default-jetty':
     path => '/etc/default/jetty',
     ensure => file,
-    source => '../files/jetty/6.1.24/etc-default-jetty',
+    source => 'jetty/6.1.24/etc-default-jetty',
     owner => 'root',
     group => 'root',
-    mode => '644',
-    notify  => Exec["/usr/bin/aptitude update"]
+    mode => '644'
+  }
+  
+  file {'etc-jetty-jetty':
+    path => '/etc/jetty/jetty.xml',
+    ensure => file,
+    source => 'jetty/6.1.24/etc-jetty-jetty.xml',
+    owner => 'root',
+    group => 'root',
+    mode => '644'
+  }
+  
+  file {'etc-jetty-realm':
+    path => '/etc/jetty/realm.properties',
+    ensure => file,
+    source => 'jetty/6.1.24/etc-jetty-realm.properties',
+    owner => 'root',
+    group => 'root',
+    mode => '644'
+  }
+  
+  file {'etc-jetty-start':
+    path => '/etc/jetty/start.config',
+    ensure => file,
+    source => 'jetty/6.1.24/etc-jetty-start.config',
+    owner => 'root',
+    group => 'root',
+    mode => '644'
   }
     
-  File['etc-default-jetty'] -> Notify['jetty']
 
-
-
-}
 
 
